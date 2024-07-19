@@ -21,7 +21,7 @@ export function NavbarDemo() {
 }
 
 // Navbar component
-export default function Navbar({ className }: NavbarProps) {
+ export function Navbar({ className }: NavbarProps) {
   const [active, setActive] = useState<string | null>(null);
 
   return (

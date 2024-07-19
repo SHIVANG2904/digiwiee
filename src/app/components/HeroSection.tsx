@@ -20,10 +20,11 @@ export function HeroSection() {
         }}
         className="text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto "
       >
-        With insomnia, nothing&apos;s real. Everything is far away. Everything
-        is a{" "}
+       Digiiwee
+Lead Generation
+
         <Highlight className="text-black dark:text-white">
-          copy, of a copy, of a copy.
+        We are Lucknow first Ai digital marketing agency
         </Highlight>
       </motion.h1>
     </HeroHighlight>

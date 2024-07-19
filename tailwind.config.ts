@@ -1,4 +1,7 @@
 import type { Config } from "tailwindcss";
+const defaultTheme = require("tailwindcss/defaultTheme");
+ 
+const colors = require("tailwindcss/colors");
 const svgToDataUri = require("mini-svg-data-uri");
 const {
   default: flattenColorPalette,
@@ -12,6 +15,17 @@ const config: Config = {
   darkMode: "class",
   theme: {
     extend: {
+      animation: {
+        scroll:
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+      },
+      keyframes: {
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -20,6 +34,7 @@ const config: Config = {
     },
   },
   plugins: [
+    
     addVariablesForColors,
     function ({ matchUtilities, theme }: any) {
       matchUtilities(

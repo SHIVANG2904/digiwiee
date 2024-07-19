@@ -1,0 +1,21 @@
+npx create-next-app@latest .
+npm i 
+npm run dev
+ npm i framer-motion clsx tailwind-merge mini-svg-data-uri         
+>>     
+
+learn:
+backend in nextjs
+tailwind  css crash course
+accesing one component within another like instructors with wavy bg
+
+
+
+
+
+
+Default Export: Easier to import and often used when a module exports a single component.
+Named Export: Useful when a module exports multiple components or functions, allowing you to import only what you need.
+Choosing Between Them
+Use default export if your module only exports one main component or function.
+Use named export if your module exports multiple components or functions, providing more flexibility in what can be imported.
