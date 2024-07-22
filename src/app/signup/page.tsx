@@ -8,13 +8,13 @@ import { useRouter } from "next/navigation";
 
 export default function SignupPage() {
     const router = useRouter();
-    const [user, setUser] = React.useState({
+    const [user, setUser] = useState({
         email: "",
         password: "",
         username: "",
     });
-    const [buttonDisabled, setButtonDisabled] = React.useState(true);
-    const [loading, setLoading] = React.useState(false);
+    const [buttonDisabled, setButtonDisabled] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     // Function to handle user signup
     const onSignup = async () => {
@@ -42,47 +42,56 @@ export default function SignupPage() {
     }, [user]);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen py-2">
-            <h1>{loading ? "Processing..." : "Signup"}</h1>
-            <hr />
-            <label htmlFor="username">Username</label>
-            <input
-                className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
-                id="username"
-                type="text"
-                value={user.username}
-                onChange={(e) => setUser({ ...user, username: e.target.value })}
-                placeholder="Username"
-                disabled={loading} // Disable input while loading
-            />
-            <label htmlFor="email">Email</label>
-            <input
-                className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
-                id="email"
-                type="email"
-                value={user.email}
-                onChange={(e) => setUser({ ...user, email: e.target.value })}
-                placeholder="Email"
-                disabled={loading} // Disable input while loading
-            />
-            <label htmlFor="password">Password</label>
-            <input
-                className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 text-black"
-                id="password"
-                type="password"
-                value={user.password}
-                onChange={(e) => setUser({ ...user, password: e.target.value })}
-                placeholder="Password"
-                disabled={loading} // Disable input while loading
-            />
-            <button
-                onClick={onSignup}
-                disabled={buttonDisabled || loading}
-                className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
-            >
-                {loading ? "Processing..." : "Signup"}
-            </button>
-            <Link href="/login">Visit login page</Link>
+        <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">
+            <div className="max-w-md w-full bg-white shadow-lg rounded-lg p-8">
+                <h1 className="text-2xl font-semibold text-center mb-6">
+                    {loading ? "Processing..." : "Signup"}
+                </h1>
+                <hr className="mb-6" />
+                <label htmlFor="username" className="block text-gray-700 mb-2">Username</label>
+                <input
+                    className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-blue-500 text-black"
+                    id="username"
+                    type="text"
+                    value={user.username}
+                    onChange={(e) => setUser({ ...user, username: e.target.value })}
+                    placeholder="Username"
+                    disabled={loading}
+                />
+                <label htmlFor="email" className="block text-gray-700 mb-2">Email</label>
+                <input
+                    className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-blue-500 text-black"
+                    id="email"
+                    type="email"
+                    value={user.email}
+                    onChange={(e) => setUser({ ...user, email: e.target.value })}
+                    placeholder="Email"
+                    disabled={loading}
+                />
+                <label htmlFor="password" className="block text-gray-700 mb-2">Password</label>
+                <input
+                    className="w-full p-3 border border-gray-300 rounded-lg mb-6 focus:outline-none focus:border-blue-500 text-black"
+                    id="password"
+                    type="password"
+                    value={user.password}
+                    onChange={(e) => setUser({ ...user, password: e.target.value })}
+                    placeholder="Password"
+                    disabled={loading}
+                />
+                <button
+                    onClick={onSignup}
+                    disabled={buttonDisabled || loading}
+                    className="w-full p-3 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition duration-300"
+                >
+                    {loading ? "Processing..." : "Signup"}
+                </button>
+                <p className="text-center mt-4">
+                    Already have an account?{" "}
+                    <Link href="/login" className="text-blue-500 hover:underline">
+                        Visit login page
+                    </Link>
+                </p>
+            </div>
         </div>
     );
 }
