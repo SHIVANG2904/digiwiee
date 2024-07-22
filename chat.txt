@@ -11,6 +11,8 @@ accesing one component within another like instructors with wavy bg
 
 
 
+cmd to make multiple folder str.
+mkdir -p project/{src/{components,utils},dist,tests/{unit,integration}}
 
 
 
@@ -19,3 +21,10 @@ Named Export: Useful when a module exports multiple components or functions, all
 Choosing Between Them
 Use default export if your module only exports one main component or function.
 Use named export if your module exports multiple components or functions, providing more flexibility in what can be imported.
+
+process.env.TOKEN_SECRET=Pely16XuPDWxEqe+GMKj6UeXDasKqIBJdu6T1j8FnVA=
+process.env.DOMAIN=http://localhost:300
+process.env.MONGO_URI="mongodb+srv://shivangagarwal3165:b4LRAHbg5OQ8TTLt@cluster0.zjdltpx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+
+
+b4LRAHbg5OQ8TTLt

@@ -7,12 +7,11 @@ export default function Home() {
   return (
     <div>
     
-      <HeroSection/>
-     < BackgroundGradientDemo/>
+    <HeroSection/>
      <InfiniteMovingCardsDemo/>
      <Instructors/>
      <Footer/>
-    
+
      
     </div>
   );

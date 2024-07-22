@@ -7,9 +7,17 @@ function Footer() {
           <div>
             <h2 className="text-white text-lg font-semibold mb-4">About Us</h2>
             <p className="mb-4">
-              Music School is a premier institution dedicated to teaching the art
-              and science of music. We nurture talent from the ground up,
-              fostering a vibrant community of musicians.
+             
+                Established for 4 years +with a proven track record.
+Successfully collaborated with over 40 clients.
+Our services include Social Media Management,
+Meta Ads, Digital Marketing, Organic Lead
+Generation, Video Editing, Website Development,
+UI/UX Design, and Brand Consultancy.
+We deliver tailored digital solutions to enhance your
+brand and drive business growth.
+           
+             
             </p>
           </div>
           <div>

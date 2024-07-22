@@ -1,0 +1,87 @@
+Backend (Node.js/Express)
+Generate a Token
+When a user logs in, generate a JWT and send it to the client.
+
+javascript
+Copy code
+const jwt = require('jsonwebtoken');
+
+const generateToken = (user) => {
+  const payload = {
+    id: user._id,
+    email: user.email,
+    role: user.role,
+  };
+
+  const token = jwt.sign(payload, 'your_jwt_secret', { expiresIn: '1h' });
+  return token;
+};
+Verify a Token
+Protect routes by verifying the token.
+
+javascript
+Copy code
+const jwt = require('jsonwebtoken');
+
+const authMiddleware = (req, res, next) => {
+  const token = req.header('Authorization').replace('Bearer ', '');
+
+  if (!token) {
+    return res.status(401).json({ message: 'No token, authorization denied' });
+  }
+
+  try {
+    const decoded = jwt.verify(token, 'your_jwt_secret');
+    req.user = decoded;
+    next();
+  } catch (err) {
+    res.status(401).json({ message: 'Token is not valid' });
+  }
+};
+
+module.exports = authMiddleware;
+Frontend (React)
+Store Token
+After logging in, store the token in local storage.
+
+javascript
+Copy code
+const login = async (email, password) => {
+  const response = await fetch('/api/auth/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email, password }),
+  });
+
+  const data = await response.json();
+  if (response.ok) {
+    localStorage.setItem('token', data.token);
+  } else {
+    console.error(data.message);
+  }
+};
+Send Token with Requests
+Include the token in the headers when making requests to protected endpoints.
+
+javascript
+Copy code
+const getProtectedData = async () => {
+  const token = localStorage.getItem('token');
+
+  const response = await fetch('/api/protected', {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    },
+  });
+
+  const data = await response.json();
+  if (response.ok) {
+    console.log(data);
+  } else {
+    console.error(data.message);
+  }
+};
+Conclusion
+Tokens provide a secure, stateless way to handle authentication and authorization in modern web applications. They enhance the scalability and flexibility of the application while ensuring secure access to resources.

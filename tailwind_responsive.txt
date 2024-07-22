@@ -1,0 +1,61 @@
+Container Div
+relative: Sets position to relative.
+min-h-screen: Ensures the container always covers the full height of the screen.
+w-full: Sets width to full.
+flex: Uses flexbox layout.
+items-center: Centers items vertically.
+bg-white dark:bg-black: Sets background color to white in light mode and black in dark mode.
+justify-center: Centers items horizontally.
+group: Allows for group hover states.
+overflow-hidden: Prevents overflow.
+Background Div
+absolute: Sets position to absolute.
+inset-0: Sets all four sides to 0 (covering the entire container).
+bg-dot-thick-neutral-300 dark:bg-dot-thick-neutral-800: Applies background pattern for light and dark modes.
+pointer-events-none: Disables pointer events.
+Motion Div (For Hover Effect)
+pointer-events-none: Disables pointer events.
+bg-dot-thick-indigo-500 dark:bg-dot-thick-indigo-500: Applies background pattern for light and dark modes.
+absolute: Sets position to absolute.
+inset-0: Sets all four sides to 0 (covering the entire container).
+opacity-0 transition duration-300 group-hover:opacity-100: Manages opacity and transition on hover.
+Child Div
+relative: Sets position to relative.
+z-20: Sets z-index to 20.
+Highlight Span
+relative: Sets position to relative.
+inline-block: Sets display to inline-block.
+pb-1 px-1: Adds padding-bottom and padding-x.
+rounded-lg: Adds large border radius.
+bg-gradient-to-r from-indigo-300 to-purple-300 dark:from-indigo-500 dark:to-purple-500: Applies gradient background for light and dark modes.
+Full Tailwind CSS Classes List
+html
+Copy code
+<!-- Container Div -->
+<div class="relative min-h-screen w-full flex items-center bg-white dark:bg-black justify-center group overflow-hidden">
+
+  <!-- Background Div -->
+  <div class="absolute inset-0 bg-dot-thick-neutral-300 dark:bg-dot-thick-neutral-800 pointer-events-none"></div>
+
+  <!-- Motion Div (For Hover Effect) -->
+  <motion.div
+    class="pointer-events-none bg-dot-thick-indigo-500 dark:bg-dot-thick-indigo-500 absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100"
+    style="WebkitMaskImage: ..., maskImage: ..."
+  ></motion.div>
+
+  <!-- Child Div -->
+  <div class="relative z-20">
+    {children}
+  </div>
+</div>
+
+<!-- Highlight Span -->
+<motion.span
+  initial={{ backgroundSize: "0% 100%" }}
+  animate={{ backgroundSize: "100% 100%" }}
+  transition={{ duration: 2, ease: "linear", delay: 0.5 }}
+  style={{ backgroundRepeat: "no-repeat", backgroundPosition: "left center", display: "inline" }}
+  class="relative inline-block pb-1 px-1 rounded-lg bg-gradient-to-r from-indigo-300 to-purple-300 dark:from-indigo-500 dark:to-purple-500"
+>
+  {children}
+</motion.span>
